@@ -49,9 +49,9 @@ getData().then(value => {
 
 export default class MenuScreen extends Component {
 
-    addMenuItem = (itemNumber, itemPrice) => {
+    addMenuItem = (itemName, itemNumber, itemPrice) => {
         if (globalCart.items[itemNumber-1] == null)
-            globalCart.items[itemNumber-1] = new foodItem(itemNumber, "Menu Item " + itemNumber, itemPrice);
+            globalCart.items[itemNumber-1] = new foodItem(itemNumber, itemName, itemPrice);
 
         globalCart.items[itemNumber-1].qty++;
         globalCart.total+=itemPrice;
@@ -68,14 +68,14 @@ export default class MenuScreen extends Component {
         return (
             <View style={styles.container}>
                 <ScrollView style={styles.scrollContainer}>
-                    <MenuItem itemNumber={1} itemPrice={4.99} onPress={this.addMenuItem}/>
-                    <MenuItem itemNumber={2} itemPrice={4.99} onPress={this.addMenuItem}/>
-                    <MenuItem itemNumber={3} itemPrice={4.99} onPress={this.addMenuItem}/>
-                    <MenuItem itemNumber={4} itemPrice={4.99} onPress={this.addMenuItem}/>
-                    <MenuItem itemNumber={5} itemPrice={4.99} onPress={this.addMenuItem}/>
-                    <MenuItem itemNumber={6} itemPrice={4.99} onPress={this.addMenuItem}/>
-                    <MenuItem itemNumber={7} itemPrice={4.99} onPress={this.addMenuItem}/>
-                    <MenuItem itemNumber={8} itemPrice={4.99} onPress={this.addMenuItem}/>
+                    <MenuItem itemName='Fries - Small' itemNumber={1} itemPrice={1.99} onPress={this.addMenuItem}/>
+                    <MenuItem itemName='Fries - Medium' itemNumber={2} itemPrice={2.99} onPress={this.addMenuItem}/>
+                    <MenuItem itemName='Fries - Large' itemNumber={3} itemPrice={3.50} onPress={this.addMenuItem}/>
+                    <MenuItem itemName='Big-Mac' itemNumber={4} itemPrice={4.99} onPress={this.addMenuItem}/>
+                    <MenuItem itemName='Double Big-Mac' itemNumber={5} itemPrice={5.99} onPress={this.addMenuItem}/>
+                    <MenuItem itemName='Coke - Small' itemNumber={6} itemPrice={1.00} onPress={this.addMenuItem}/>
+                    <MenuItem itemName='Coke - Medium' itemNumber={7} itemPrice={1.00} onPress={this.addMenuItem}/>
+                    <MenuItem itemName='Coke - Large' itemNumber={8} itemPrice={1.00} onPress={this.addMenuItem}/>
                     <View style={styles.filler}/>
                 </ScrollView>
                 <NavBar navigation={this.props.navigation}/>

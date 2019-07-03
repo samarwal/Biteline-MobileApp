@@ -73,9 +73,9 @@ export default class CartScreen extends Component {
                 if (globalCart.items[i].qty > 0)
                 {
                     if (i === 0)
-                        temp.push((<CartItem key={i} itemStyle={styles.firstItemContainer} itemNumber={globalCart.items[i].id} itemQty={globalCart.items[i].qty} itemCost={globalCart.items[i].price} onPress={this.removeItem}/>));
+                        temp.push((<CartItem key={i} itemStyle={styles.firstItemContainer} itemName={globalCart.items[i].name} itemNumber={globalCart.items[i].id} itemQty={globalCart.items[i].qty} itemCost={globalCart.items[i].price} onPress={this.removeItem}/>));
                     else
-                        temp.push((<CartItem key={i} itemStyle={styles.itemContainer} itemNumber={globalCart.items[i].id} itemQty={globalCart.items[i].qty} itemCost={globalCart.items[i].price} onPress={this.removeItem}/>));
+                        temp.push((<CartItem key={i} itemStyle={styles.itemContainer} itemName={globalCart.items[i].name} itemNumber={globalCart.items[i].id} itemQty={globalCart.items[i].qty} itemCost={globalCart.items[i].price} onPress={this.removeItem}/>));
                 }
             }
         }

@@ -6,7 +6,7 @@ export default class CartItem extends Component {
     render(){
         return(
             <View style={this.props.itemStyle}>
-                <Text style={styles.itemText}>Menu Item {this.props.itemNumber}</Text>
+                <Text style={styles.itemText}>{this.props.itemName}</Text>
                 <Text style={styles.qtyText}>Qty: {this.props.itemQty}</Text>
                 <Text style={styles.costText}>${this.props.itemCost}</Text>
                 <TouchableOpacity onPress={() => this.props.onPress(this.props.itemNumber)}>

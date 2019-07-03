@@ -7,14 +7,14 @@ export default class MenuItem extends Component {
         animated: new Animated.Value(0)
     };
 
-    addItem = function(onPress, itemNumber, itemPrice, state) {
+    addItem = function(onPress, itemName, itemNumber, itemPrice, state) {
         Animated.timing(state.animated, {
             toValue: 1,
             duration: 100,
         }).start(() => {
             this.fadeOut(state);
         });
-        onPress(itemNumber, itemPrice);
+        onPress(itemName, itemNumber, itemPrice);
     };
 
     fadeOut = function(state) {
@@ -28,13 +28,13 @@ export default class MenuItem extends Component {
         return(
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.text}>Item {this.props.itemNumber}</Text>
+                    <Text style={styles.text}>{this.props.itemName}</Text>
                 </View>
                 <View style={styles.priceContainer}>
                     <Text style={styles.textPrice}>${this.props.itemPrice}</Text>
                 </View>
                 <View style={styles.buttonView}>
-                    <TouchableOpacity style={styles.button} onPress={() => this.addItem(this.props.onPress, this.props.itemNumber, this.props.itemPrice, this.state)}>
+                    <TouchableOpacity style={styles.button} onPress={() => this.addItem(this.props.onPress, this.props.itemName, this.props.itemNumber, this.props.itemPrice, this.state)}>
                         <Text style={styles.addText}>Add</Text>
                     </TouchableOpacity>
                 </View>
@@ -52,6 +52,7 @@ export default class MenuItem extends Component {
 const styles = StyleSheet.create({
    container: {
        flexDirection: 'row',
+       justifyContent: 'space-evenly',
        alignItems: 'center',
        marginTop: 20,
        marginRight: 40,
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
        textAlign: 'center',
        color: 'black',
        fontSize: 20,
-       marginLeft: 15,
+       //marginLeft: 100,
    },
 
    buttonView: {
@@ -92,7 +93,8 @@ const styles = StyleSheet.create({
     },
 
     priceContainer: {
-       marginLeft: 120,
+        marginLeft: 'auto',
+        marginRight: 15,
     },
     addedText: {
         fontSize: 15,

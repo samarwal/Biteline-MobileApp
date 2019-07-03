@@ -3,14 +3,16 @@ import {StyleSheet, Text, View, AppRegistry, TouchableOpacity, Image} from 'reac
 
 export default class RestaurantButton extends Component {
 
+    //require('../../images/Placeholder.png')
+
     render() {
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={() => this.props.onPress(this.props.restaurantID)}>
                     <View style={styles.restaurantButton}>
-                        <Image source={require('../../images/Placeholder.png')} style={styles.restaurantImage}/>
+                        <Image source={this.props.restaurantImage} style={styles.restaurantImage}/>
                         <View style={styles.restaurantColumn}>
-                            <Text style={styles.restaurantName}>Restaurant {this.props.restaurantID}</Text>
+                            <Text style={styles.restaurantName}>{this.props.restaurantName}</Text>
                             <Text style={styles.restaurantHours}>{this.props.restaurantHours}</Text>
                             <Text style={styles.restaurantAddress}>{this.props.restaurantAddress}</Text>
                         </View>
