@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, AppRegistry, Text, ScrollView, TextInput, Picker, TouchableOpacity} from 'react-native';
+import Dialog, { DialogTitle, DialogContent } from 'react-native-popup-dialog';
 import t from 'tcomb-form-native';
 
 import NavBar from '../navigation/navBar';
@@ -116,9 +117,19 @@ export default class CheckoutScreen extends Component {
                         </Picker>
                         {this.creditCart()}
                         <Text style={styles.totalText}>Total: ${GLOBAL.globalCart.total.toFixed(2)}</Text>
-                        <TouchableOpacity style={styles.orderButton}>
+                        <TouchableOpacity onPress={() => {this.setState({ visible: true });}} style={styles.orderButton}>
                             <Text style={styles.orderText}>Order</Text>
                         </TouchableOpacity>
+                        <Dialog 
+                            visible={this.state.visible} 
+                            onTouchOutside={() => {this.setState({ visible: false });}}
+                            //dialogTitle={}
+                        >
+                            <DialogTitle textStyle={styles.dialogTitle} title="Thank you for ordering from McDonald's!" />
+                            <DialogContent>
+                                <Text style={styles.dialogText}>Your order is now being processed.</Text>
+                            </DialogContent>
+                        </Dialog>
                     </View>
                 </ScrollView>
                 <NavBar navigation={this.props.navigation}/>
@@ -191,6 +202,16 @@ const styles = StyleSheet.create({
     orderText: {
         fontSize: 13,
         color: 'white',
+    },
+    dialogTitle: {
+        textAlign: 'center',
+        fontWeight: 'bold',
+    },
+    dialogText: {
+        textAlign: 'center',
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: 'black',
     },
 });
 
