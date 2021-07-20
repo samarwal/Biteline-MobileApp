@@ -12,7 +12,7 @@
     "react": "16.8.3",
     "react-credit-card-input": "^1.1.5",
     "react-dom": "^16.8.6",
-    "react-native": "^0.59.9",
+    "react-native": "^0.62.3",
     "react-native-cli": "^2.0.1",
     "react-native-dropdown-menu": "^2.0.0",
     "react-native-elements": "^1.1.0",
